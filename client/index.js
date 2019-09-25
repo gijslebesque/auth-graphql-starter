@@ -4,6 +4,7 @@ import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import { HashRouter, Router, Route } from 'react-router-dom';
 import Layout from './components/Layout';
+import Login from './components/Login';
 
 const client = new ApolloClient({
   dataIdFromObject: o => o.id
@@ -12,7 +13,10 @@ const Root = () => {
   return (
     <ApolloProvider client={client}>
       <HashRouter>
-        <Route path="/" component={Layout}></Route>
+        <div>
+          <Route path="/" component={Layout}></Route>
+          <Route path="/login" component={Login}></Route>
+        </div>
       </HashRouter>
     </ApolloProvider>
   );
